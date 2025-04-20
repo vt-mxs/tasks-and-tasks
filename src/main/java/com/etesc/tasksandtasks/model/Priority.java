@@ -15,4 +15,28 @@ public class Priority {
 	
 	@Column(nullable = false)
 	private String level;
+
+	public Priority() {
+	}
+	
+	public Priority(Long id, String level) {
+		this.id = id;
+		this.level = level;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getLevel() {
+		return level;
+	}
+
+	public void setLevel(String level) {
+		this.level = level;
+	}
 }
