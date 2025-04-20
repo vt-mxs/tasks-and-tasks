@@ -1,10 +1,12 @@
 package com.etesc.tasksandtasks.api.dto.request;
-import jakarta.annotation.Nonnull;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
 public record UserRequestDTO(
-		@Nonnull
+		@NotBlank
 		String name,
-		@Nonnull
+		@NotBlank
+		@Email
 		String email) {
 
 }

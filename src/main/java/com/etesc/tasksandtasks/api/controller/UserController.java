@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.etesc.tasksandtasks.api.dto.request.UserRequestDTO;
 import com.etesc.tasksandtasks.api.dto.response.UserResponseDTO;
 import com.etesc.tasksandtasks.api.service.UserService;
+
+import jakarta.validation.Valid;
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -25,7 +27,7 @@ public class UserController {
 	}
 	
 	@PostMapping
-	public ResponseEntity<UserResponseDTO> createUser(@RequestBody UserRequestDTO request){
+	public ResponseEntity<UserResponseDTO> createUser(@RequestBody @Valid UserRequestDTO request){
 		UserResponseDTO createdUser = service.createUser(request);
 		return ResponseEntity.status(HttpStatus.CREATED).body(createdUser);
 	}
