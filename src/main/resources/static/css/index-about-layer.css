@@ -1,0 +1,23 @@
+#about {
+    width: 96vw;
+    height: 38vh;
+    margin-bottom: 6%;
+    background-color: #2f2841;
+    box-sizing: border-box;
+    margin-left: 2%;
+    margin-right: 2%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#about > p {
+    font-size: 15pt;
+    color: white;
+    margin: 0;
+    display: flex;
+    padding: 1%;
+    align-items: center;
+    justify-content: flex-start;
+}
