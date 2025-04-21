@@ -97,6 +97,24 @@
     box-sizing: border-box;
 }
 
+#login-section {
+    display: flex;
+    align-items: center;
+}
+
+#login-section > p {
+    color: white;
+}
+
+#login-section > a{
+    margin-left: 5px;
+    transition: transform 2s ease-in-out;
+}
+
+#login-section > a:hover {
+    border-bottom: 2px solid #110324;
+}
+
 @media only screen and (max-width: 950px) {
     #card-form {
         width: 85%;
