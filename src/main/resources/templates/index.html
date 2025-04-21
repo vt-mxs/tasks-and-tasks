@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks and Tasks</title>
+    <link rel="stylesheet" href="../static/css/index-style.css">
+</head>
+<body>
+    <header>
+        
+    </header>
+
+    <section id="main-register">
+        <article id="left-register">
+            <h2>Organize suas tarefas com a gente</h2>
+            <img src="../static/imgs/working-animate.svg" alt="man-working" id="left-register-img">
+        </article>
+        <article id="right-register">
+            <form th:action="@{/create/user}" th:object="${user}" method="post" id="card-form">
+                <h3>REGISTRO</h3>
+
+                <div class="textfield">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" th:field="*{name}" required>
+                </div>
+                
+                <div class="textfield">
+                    <label for="name">Email:</label>
+                    <input type="text" id="email" th:field="*{email}" required>
+                </div>
+                <button type="submit" id="btn-sub">Cadastrar</button>
+            </form>
+        </article>
+    </section>
+</body>
+</html>

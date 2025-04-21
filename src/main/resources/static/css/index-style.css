@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --main-highlight-color: #77ffc0;
+    --main-back-color: #201b2c;
+    --main-box-shadow: 0px 10px 40px #00000056;
+}
+
+body {
+    margin:0;
+    background-color: var(--main-back-color);
+    font-family: "Roboto", 'Trebuchet MS';
+}
+
+body * {
+    box-sizing: border-box;
+}
+
+#main-register {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#left-register {
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#left-register-img {
+    width: 64vh;
+}
+
+#left-register > h2 {
+    font-size: 3vw;
+    margin: 2px;
+    color: var(--main-highlight-color);
+}
+
+#right-register {
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#card-form {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 35px;
+    background-color: #2f2841;
+    border-radius: 20px;
+    box-shadow: var(--main-box-shadow);
+}
+
+#card-form > h3 {
+    color: var(--main-highlight-color);
+    font-size: x-large;
+    font-weight: 800;
+    margin: 0;
+}
+
+.textfield {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0px;
+    font-size: 13pt;
+    align-items: flex-start;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.textfield > input {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #514869;
+    color: #f0ffffde;
+    font-size: 12pt;
+    box-shadow: var(--main-box-shadow);
+    box-sizing: border-box;
+    outline: none;
+}
+
+.textfield > label {
+    color: #f0ffffde;
+    margin-bottom: 10px;
+}
+
+#btn-sub {
+    width: 100%;
+    padding: 16px 0px;
+    margin: 25px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+    font-size: 12pt;
+    color: #2b134b;
+    box-sizing: border-box;
+}
+
+@media only screen and (max-width: 950px) {
+    #card-form {
+        width: 85%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #main-register {
+        flex-direction: column;
+    }
+
+    #left-register {
+        width: 100%;
+        height: auto;
+    }
+
+    #left-register > h2 {
+        font-size: 14pt;
+    }
+
+    #left-register-img {
+        width: 40vh;
+    }
+
+    #right-register {
+        width: 100%;
+        height: auto;
+    }
+
+    #card-form {
+        width: 80%;
+
+    }
+}
