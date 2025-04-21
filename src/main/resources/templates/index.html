@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tasks and Tasks</title>
-    <link rel="stylesheet" href="../static/css/index-register-layer.css">
-    <link rel="stylesheet" href="../static/css/index-header-layer.css">
-    <link rel="stylesheet" href="../static/css/index-footer-layer.css">
+    <link th:href="@{/css/index-register-layer.css}" rel="stylesheet">
+    <link th:href="@{/css/index-header-layer.css}" rel="stylesheet">
+    <link th:href="@{/css/index-footer-layer.css}" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -23,7 +23,7 @@
     <section id="main-register">
         <article id="left-register">
             <h2>Organize suas tarefas com a gente</h2>
-            <img src="../static/imgs/working-animate.svg" alt="man-working" id="left-register-img">
+            <img th:src="@{/imgs/working-animate.svg}" alt="man-working" id="left-register-img">
         </article>
         <article id="right-register">
             <form th:action="@{/create/user}" th:object="${user}" method="post" id="card-form">
