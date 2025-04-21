@@ -26,7 +26,7 @@ body * {
 
 #left-register {
     width: 50vw;
-    height: 100vh;
+    height: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,7 +45,7 @@ body * {
 
 #right-register {
     width: 50vw;
-    height: 100vh;
+    height: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;

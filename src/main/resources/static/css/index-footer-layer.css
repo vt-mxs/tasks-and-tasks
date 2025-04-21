@@ -1,0 +1,27 @@
+footer {
+    width: 100vw;
+    height: 15vh;
+    background-color: #23232e;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+#footer-left {
+    width: 50%;
+}
+
+#footer-left > p {
+    font-size: 15pt;
+    margin: 5px;
+}
+
+#footer-right {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#footer-right > p {
+    margin: 20px;
+}
