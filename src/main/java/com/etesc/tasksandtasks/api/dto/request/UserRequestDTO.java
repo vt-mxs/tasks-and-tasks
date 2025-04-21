@@ -8,5 +8,4 @@ public record UserRequestDTO(
 		@NotBlank
 		@Email
 		String email) {
-
 }
