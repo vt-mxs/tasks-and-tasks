@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks and Tasks</title>
+    <link rel="stylesheet" href="../static/css/login-page/login-card-style.css">
+</head>
+<body>
+    
+    <section id="login-card">
+        <article id="header">
+            <h1>Que bom ver você de novo!</h1>
+        </article>
+
+        <article id="card-img-article">
+            <img src="../static/imgs/celebration-animate.svg" alt="man-working" id="card-img">
+        </article>
+
+        <article id="footer">
+            <form th:action="@{/login/user}" th:object="${user}" method="post" id="login-form">
+                <label for="email">Email:</label>
+                <input type="text" th:field="*{email}" id="email-field" required>
+                <button type="submit" id="btn-sub">LOGIN</button>
+            </form>
+        </article>
+    </section>
+</body>
+</html>

@@ -1,0 +1,85 @@
+@import "../index/global-style.css";
+
+body {
+    margin: 0px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-card {
+    width: 35%;
+    height: 96%;
+    background-color: #2f2841;
+    border-radius: 10px;
+    box-shadow: var(--main-box-shadow);
+}
+
+#header > h1 {
+    color: white;
+    font-size: 17pt;
+    margin-top: 10px;
+}
+
+#header {
+    text-align: center;
+}
+
+#card-img-article {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#card-img {
+    height: 60vh;
+    margin-bottom: 4%;
+}
+
+#footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#login-form > label {
+    margin-bottom: 3%;
+    color: white;
+}
+
+#email-field {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #514869;
+    color: #f0ffffde;
+    font-size: 12pt;
+    box-shadow: var(--main-box-shadow);
+    box-sizing: border-box;
+    outline: none;
+}
+
+#btn-sub {
+    width: 100%;
+    margin-top: 10%;
+    padding: 4%;
+    background-color: #514869;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+    font-size: 12pt;
+    color: #f0ffffde;
+    box-sizing: border-box;
+}
