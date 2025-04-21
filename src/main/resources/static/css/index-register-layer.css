@@ -1,25 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
-:root {
-    --main-highlight-color: #77ffc0;
-    --main-back-color: #201b2c;
-    --main-box-shadow: 0px 10px 40px #00000056;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    margin:0;
-    background-color: var(--main-back-color);
-    font-family: "Roboto", 'Trebuchet MS';
-}
-
-body * {
-    box-sizing: border-box;
-}
-
 #main-register {
     width: 100vw;
     height: 100vh;
