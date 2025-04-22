@@ -13,13 +13,6 @@ public class UserService {
 	@Autowired
 	private UserRepository repository;
 	
-	public UserResponseDTO getUserByEmail(String email) {
-		User user = repository.findByEmail(email)
-					// TODO: implementar exception personalizada depois
-					.orElseThrow(() -> new RuntimeException());
-		return new UserResponseDTO(user.getId(), user.getName(), user.getEmail());
-	}
-	
 	public UserResponseDTO createUser(UserDTO request) {
 		User user = new User();
 		user.setName(request.getName());
@@ -27,5 +20,12 @@ public class UserService {
 		user = repository.save(user);
 		
 		return new UserResponseDTO(user.getId(), request.getName(), request.getEmail());
+	}
+
+	public UserResponseDTO loginUser(String email) {
+		User user = repository.findByEmail(email)
+					// TODO: implementar exception personalizada depois
+					.orElseThrow(() -> new RuntimeException());
+		return new UserResponseDTO(user.getId(), user.getName(), user.getEmail());
 	}
 }

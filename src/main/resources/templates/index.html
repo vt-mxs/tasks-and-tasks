@@ -27,7 +27,7 @@
             <img th:src="@{/imgs/working-animate.svg}" alt="man-working" id="left-register-img">
         </article>
         <article id="right-register">
-            <form th:action="@{/create/user}" th:object="${user}" method="post" id="card-form">
+            <form th:action="@{/register}" th:object="${user}" method="post" id="card-form">
                 <h3>REGISTRO</h3>
 
                 <div class="textfield">
@@ -40,9 +40,10 @@
                     <input type="text" id="email" th:field="*{email}" required>
                 </div>
                 <button type="submit" id="btn-sub">Cadastrar</button>
+
                 <div id="login-section">
                     <p style="color: white;">Já é cadastrado?</p>
-                    <a id="login-link" href="/"><b>Faça login</b></a>
+                    <a id="login-link" th:href="@{/login}"><b>Faça login</b></a>
                 </div>
             </form>
         </article>
