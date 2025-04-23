@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tasks and Tasks</title>
-    <link rel="stylesheet" th:href="@{/css/login-page/login-card-style.css}">
+    <link rel="stylesheet" href="../static/css/login-page/login-card-style.css">
 </head>
 <body>
     <section id="return-section">
-        <a th:href="@{/}" id="return-link">Voltar</a>
+        <a href="index.html" id="return-link">Voltar</a>
     </section>
 
     <div id="main">
@@ -18,13 +18,13 @@
             </article>
     
             <article id="card-img-article">
-                <img th:src="@{/imgs/celebration-animate.svg}" alt="man-working" id="card-img">
+                <img src="../static/imgs/celebration-animate.svg" alt="man-working" id="card-img">
             </article>
     
             <article id="footer">
-                <form th:action="@{/login}" th:object="${user}"  method="post" id="login-form">
+                <form id="login-form">
                     <label for="email">Email</label>
-                    <input type="text" th:field="*{email}" id="email-field" required>
+                    <input type="text" id="email-field" required>
                     <button type="submit" id="btn-sub">LOGIN</button>
                 </form>
             </article>

@@ -6,6 +6,44 @@
     <title>Document</title>
 </head>
 <body>
-    <p>Olá <span th:text="${session.user.name}"></span></p>
+    <header>
+        <h1>Olá <span th:text="${session.user.name}"></span></h1>
+        <nav>
+
+            <!-- 
+                private Category category;
+                private Priority priority;
+            -->
+            <form action="#" th:action="@{/work-area/create-task}" th:object="${task}" method="post">
+                <label for="title">Titulo</label>
+                <input type="text" th:field="*{title}" id="title" required>
+                <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
+
+                <label for="description">Descrição</label>
+                <input type="text" th:field="*{description}" id="email" required>
+                <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+
+                <label for="limit-date">Data de entrega</label>
+                <input type="date" th:field="*{limit-date}" id="limit-date" required>
+                <span th:if="${#fields.hasErrors('limit-date')}" th:errors="*{limit-date}"></span>
+
+                <label for="category">Categoria</label>
+                <input type="text" th:field="*{category}" id="category" required>
+                <span th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></span>
+
+                <label for="priority">Prioridade</label>
+                <input type="radio" th:field="*{priority}" class="priority" value="Baixa">
+                <input type="radio" th:field="*{priority}" class="priority" value="Média">
+                <input type="radio" th:field="*{priority}" class="priority" value="Alta">
+
+                <span th:if="${#fields.hasErrors('priority')}" th:errors="*{priority}"></span>
+
+                <input type="submit" value="Add User">   
+            </form>
+        </nav>
+
+    
+    </header>
+    
 </body>
 </html>
