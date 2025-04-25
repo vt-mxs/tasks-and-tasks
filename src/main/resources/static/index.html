@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tasks and Tasks</title>
-    <link href="../static/css/index/global-style.css" rel="stylesheet">
-    <link href="../static/css/index/index-header-layer.css" rel="stylesheet">
-    <link href="../static/css/index/index-register-layer.css" rel="stylesheet">
-    <link href="../static/css/index/index-footer-layer.css" rel="stylesheet">
-    <link href="../static/css/index/index-about-layer.css" rel="stylesheet">
+    <link href="/css/index/global-style.css" rel="stylesheet">
+    <link href="/css/index/index-header-layer.css" rel="stylesheet">
+    <link href="/css/index/index-register-layer.css" rel="stylesheet">
+    <link href="/css/index/index-footer-layer.css" rel="stylesheet">
+    <link href="/css/index/index-about-layer.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -23,26 +23,28 @@
 
     <section id="main-register">
         <article id="left-register">
-            <h2>Organize suas tarefas com a gente</h2>
-            <img src="../static/imgs/working-animate.svg" alt="man-working" id="left-register-img">
+            <h2 style="user-select: none;">Organize suas tarefas com a gente</h2>
+            <img src="/imgs/working-animate.svg" alt="man-working" id="left-register-img">
         </article>
         <article id="right-register">
             <form id="card-form">
-                <h3>REGISTRO</h3>
+                <h3 style="user-select: none;">REGISTRO</h3>
 
                 <div class="textfield">
                     <label for="name">Nome:</label>
                     <input type="text" id="name" required>
+                    <span id="name-error-msg"></span>
                 </div>
                 
                 <div class="textfield">
                     <label for="name">Email:</label>
                     <input type="text" id="email" required>
+                    <span id="email-error-msg"></span>
                 </div>
                 <button type="submit" id="btn-sub">Cadastrar</button>
 
                 <div id="login-section">
-                    <p style="color: white;">Já é cadastrado?</p>
+                    <p style="color: white; user-select: none;">Já é cadastrado?</p>
                     <a id="login-link" href="login-page.html"><b>Faça login</b></a>
                 </div>
             </form>
@@ -50,31 +52,33 @@
     </section>
 
     <section id="about">
-        <p>
+        <p style="user-select: none;">
             Você é uma pessoa muito atarefada? Seus problemas acabaram!
             Com o Tasks and Tasks, você pode reunir todas as suas tarefas em um só lugar.
         </p>
 
-        <p>
+        <p style="user-select: none;">
             Aqui, dá para organizar suas tarefas por grau de prioridade: baixa, média e alta.
             Também é possível dividir os afazeres por categorias (como: escola, trabalho etc.), facilitando sua organização!
         </p>
 
-        <p>
+        <p style="user-select: none;">
             Ficou interessado? Cadastre-se e experimente, é totalmente gratuito!
         </p>
     </section>
 
     <footer id="rights">
         <div id="footer-left">
-            <p id="authors">
+            <p id="authors" style="user-select: none;">
                 Autores: Vitor Maximus & Gabriel Davi
             </p>
         </div>
         
         <div id="footer-right">
-            <p id="copyright">ETESC©</p>
+            <p id="copyright" style="user-select: none;"/>ETESC©</p>
         </div>
     </footer>
+
+    <script type="module" src="/js/register-script.js"></script>
 </body>
 </html>
