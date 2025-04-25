@@ -19,7 +19,9 @@ document.getElementById("login-form").addEventListener("submit", async (event) =
         return response.json();
     })
     .then(data => {
+        localStorage.setItem("user", JSON.stringify(data));
         window.alert("Bem vindo de volta " + data.name)
+        window.location.href = "work-area.html";
     })
     .catch(error => {
         window.alert(error.message)

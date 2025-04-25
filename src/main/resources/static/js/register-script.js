@@ -6,6 +6,7 @@ document.getElementById("card-form").addEventListener("submit", async (event) =>
     const name = document.getElementById("name");
     const email = document.getElementById("email");
 
+    // localhost:8080/api/users/create
     await fetch(URL_API + "/users/create", {
         method: "POST",
         headers: {
@@ -21,7 +22,9 @@ document.getElementById("card-form").addEventListener("submit", async (event) =>
         return response.json();
     })
     .then(data => {
-        window.alert("Seja bem vindo " + data.name);
+        localStorage.setItem("user", JSON.stringify(data));
+        window.alert("Prazer em te conhecer " + data.name);
+        window.location.href = "work-area.html";
     })
     .catch(error => {
         window.alert("Erro ao cadastrar: " + error.message);
