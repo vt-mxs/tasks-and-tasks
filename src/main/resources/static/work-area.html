@@ -1,49 +1,73 @@
 <!DOCTYPE html>
-<html xmlns="http://www.thymeleaf.org">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/work-area/work-area-form-style.css">
 </head>
 <body>
     <header>
-        <h1>Olá <span th:text="${session.user.name}"></span></h1>
-        <nav>
-
-            <!-- 
-                private Category category;
-                private Priority priority;
-            -->
-            <form action="#" th:action="@{/work-area/create-task}" th:object="${task}" method="post">
-                <label for="title">Titulo</label>
-                <input type="text" th:field="*{title}" id="title" required>
-                <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
-
-                <label for="description">Descrição</label>
-                <input type="text" th:field="*{description}" id="email" required>
-                <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
-
-                <label for="limit-date">Data de entrega</label>
-                <input type="date" th:field="*{limit-date}" id="limit-date" required>
-                <span th:if="${#fields.hasErrors('limit-date')}" th:errors="*{limit-date}"></span>
-
-                <label for="category">Categoria</label>
-                <input type="text" th:field="*{category}" id="category" required>
-                <span th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></span>
-
-                <label for="priority">Prioridade</label>
-                <input type="radio" th:field="*{priority}" class="priority" value="Baixa">
-                <input type="radio" th:field="*{priority}" class="priority" value="Média">
-                <input type="radio" th:field="*{priority}" class="priority" value="Alta">
-
-                <span th:if="${#fields.hasErrors('priority')}" th:errors="*{priority}"></span>
-
-                <input type="submit" value="Add User">   
-            </form>
-        </nav>
-
+        <h1>Olá <span id="user-name"></span></h1>
     
+        <nav>
+            <button id="logout-btn">Sair</button>
+        </nav>
     </header>
     
+    <section id="form-area">
+        <h2>Criar tarefa</h2>
+        <form action="#" th:action="@{/work-area/create-task}" th:object="${task}" method="post" id="task-form">
+            <div class="textfield">
+                <label for="title">Titulo</label>
+                <input type="text" th:field="*{title}" id="title" required>
+            </div>
+            
+            <div class="textfield">
+                <label for="description">Descrição</label>
+                <input type="text" id="email" required>
+            </div>
+
+            <div class="textfield">
+                <label for="category">Categoria</label>
+                <input type="text" id="category" required>
+            </div>
+
+            <div id="radio-area">
+                <label for="priority">Prioridade</label>
+                <div class="priority-div">
+                    <input type="radio" name="priority" class="priority" value="Baixa"> <label for="low-priority">Baixa</label>
+                </div>
+
+                <div class="priority-div">
+                    <input type="radio" name="priority" class="priority" value="Média"> <label for="mid-priority">Média</label>
+                </div class="priority-div">
+                
+                <div class="priority-div">
+                    <input type="radio" name="priority" class="priority" value="Alta"> <label for="low-priority">Alta</label>
+                </div>
+            </div>
+
+            <div id="submit-area">
+                <input type="submit" value="Criar">   
+            </div>
+        </form>
+    </section>
+
+    <script>
+        const user = localStorage.getItem("user");
+
+        if(!user){
+            window.location.href = "./login-page.html";
+        }
+
+        document.getElementById("user-name").textContent =  JSON.parse(user).name;
+
+
+        document.getElementById("logout-btn").addEventListener("click", (event) => {
+            localStorage.removeItem("user");
+            window.location.href = "login-page.html";
+        });
+    </script>
 </body>
 </html>
