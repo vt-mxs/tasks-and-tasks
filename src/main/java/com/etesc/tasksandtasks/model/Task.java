@@ -1,7 +1,4 @@
 package com.etesc.tasksandtasks.model;
-
-import java.time.LocalDate;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,7 +19,6 @@ public class Task {
 	private String title;
 	
 	private String description;
-	private LocalDate limitDate;
 	private Boolean completed;
 	
 	@ManyToOne 
@@ -40,12 +36,11 @@ public class Task {
 	public Task() {
 	}
 
-	public Task(Long id, String title, String description, LocalDate limitDate, Boolean completed, User user,
+	public Task(Long id, String title, String description, Boolean completed, User user,
 			Category category, Priority priority) {
 		this.id = id;
 		this.title = title;
 		this.description = description;
-		this.limitDate = limitDate;
 		this.completed = completed;
 		this.user = user;
 		this.category = category;
@@ -74,14 +69,6 @@ public class Task {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public LocalDate getLimitDate() {
-		return limitDate;
-	}
-
-	public void setLimitDate(LocalDate limitDate) {
-		this.limitDate = limitDate;
 	}
 
 	public Boolean getCompleted() {
