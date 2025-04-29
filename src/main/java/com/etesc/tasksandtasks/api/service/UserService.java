@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import com.etesc.tasksandtasks.api.dto.request.UserLoginRequestDTO;
 import com.etesc.tasksandtasks.api.dto.request.UserRequestDTO;
 import com.etesc.tasksandtasks.api.dto.response.UserResponseDTO;
+import com.etesc.tasksandtasks.api.exception.UserAlreadyExistsException;
+import com.etesc.tasksandtasks.api.exception.UserNotFoundException;
 import com.etesc.tasksandtasks.api.repository.UserRepository;
 import com.etesc.tasksandtasks.model.User;
 
@@ -17,7 +19,7 @@ public class UserService {
 
     public UserResponseDTO loginUser(UserLoginRequestDTO dto){
         Optional<User> optionalUser = repository.findByEmail(dto.email());
-        if (optionalUser.isEmpty()) throw new RuntimeException("Usuário não encontrado");
+        if (optionalUser.isEmpty()) throw new UserNotFoundException("Usuário não encontrado");
         
         User user = optionalUser.get();
         return new UserResponseDTO(user.getId(), user.getName(), user.getEmail());
@@ -25,7 +27,7 @@ public class UserService {
 
     public UserResponseDTO createUser(UserRequestDTO dto){
         Optional<User> optionalUser = repository.findByEmail(dto.email());
-        if(optionalUser.isPresent()) throw new RuntimeException("Usuário com email já cadastrado");
+        if(optionalUser.isPresent()) throw new UserAlreadyExistsException("Usuário com email já cadastrado");
 
         User user = new User();
         user.setName(dto.name());
