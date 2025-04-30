@@ -23,8 +23,8 @@ document.getElementById("login-form").addEventListener("submit", async (event) =
 
         const data = await response.json();
         localStorage.setItem("user", JSON.stringify(data));
-        window.alert("Bem vindo de volta " + data.name)
-        window.location.href = "work-area.html";    
+        window.alert("Bem vindo de volta " + data.name);
+        window.location.href = "work-area.html";
     }catch(error){
         window.alert(`Erro ao realizar login: ${error.email || "erro desconhecido, volte mais tarde."}`);
     }
