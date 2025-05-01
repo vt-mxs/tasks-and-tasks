@@ -31,7 +31,7 @@ document.getElementById("task-form").addEventListener("submit", async (event) =>
         window.alert(`Tarefa "${responseData.title}" adcionada com sucesso`);
 
     } catch (error) {
-        window.alert(`Erro ao criar tarefa: ${error.userEmail}`);
+        window.alert(`Erro ao criar tarefa: ${error.title || error.description}`);
     }
     form.reset();
 });
