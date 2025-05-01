@@ -20,17 +20,17 @@
         <form id="task-form">
             <div class="textfield">
                 <label for="title">Titulo</label>
-                <input type="text" id="title" required>
+                <input type="text" name="title" id="title" required>
             </div>
             
             <div class="textfield">
                 <label for="description">Descrição</label>
-                <textarea name="description" id="description-area"></textarea>
+                <textarea name="description" name="description" id="description-area" required></textarea>
             </div>
 
             <div class="textfield">
                 <label for="category">Categoria</label>
-                <input type="t" id="category" required>
+                <input type="text" name="category" id="category" required>
             </div>
 
             <div id="radio-area">
@@ -49,19 +49,19 @@
             </div>
 
             <div id="submit-area">
-                <input type="submit" value="Criar">   
+                <input type="submit" value="Criar" id="submit-btn">
             </div>
         </form>
     </section>
 
     <script>
-        const user = localStorage.getItem("user");
+        const userName = localStorage.getItem("userName");
 
-        if(!user){
+        if(!userName){
             window.location.href = "./login-page.html";
         }
 
-        document.getElementById("user-name").textContent =  JSON.parse(user).name;
+        document.getElementById("user-name").textContent = JSON.parse(userName).name;
 
 
         document.getElementById("logout-btn").addEventListener("click", (event) => {

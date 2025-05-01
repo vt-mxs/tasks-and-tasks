@@ -34,6 +34,7 @@ public class TaskService {
     @Transactional
     public TaskResponseDTO create(TaskRequestDTO taskRequestDTO){
         Task task = new Task();
+        System.out.println(taskRequestDTO.userEmail());
         User user = userRepository.findByEmail(taskRequestDTO.userEmail()).get();
         String formatedCategoryName = Character.toUpperCase(taskRequestDTO.categoryName().charAt(0)) + taskRequestDTO.categoryName().substring(1);
 
