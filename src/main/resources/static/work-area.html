@@ -17,20 +17,20 @@
     
     <section id="form-area">
         <h2>Criar tarefa</h2>
-        <form action="#" th:action="@{/work-area/create-task}" th:object="${task}" method="post" id="task-form">
+        <form id="task-form">
             <div class="textfield">
                 <label for="title">Titulo</label>
-                <input type="text" th:field="*{title}" id="title" required>
+                <input type="text" id="title" required>
             </div>
             
             <div class="textfield">
                 <label for="description">Descrição</label>
-                <input type="text" id="email" required>
+                <textarea name="description" id="description-area"></textarea>
             </div>
 
             <div class="textfield">
                 <label for="category">Categoria</label>
-                <input type="text" id="category" required>
+                <input type="t" id="category" required>
             </div>
 
             <div id="radio-area">
@@ -69,5 +69,7 @@
             window.location.href = "login-page.html";
         });
     </script>
+
+    <script type="module" src="/js/work-area-script/create-task-script.js"></script>
 </body>
 </html>

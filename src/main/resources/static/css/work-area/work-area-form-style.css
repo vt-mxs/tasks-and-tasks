@@ -100,6 +100,19 @@ nav {
     outline: none;
 }
 
+.textfield > textarea {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #514869;
+    color: #f0ffffde;
+    font-size: 12pt;
+    box-shadow: var(--main-box-shadow);
+    box-sizing: border-box;
+    outline: none;
+}
+
 #radio-area {
     width: 100%;
     margin-top: 7%;
