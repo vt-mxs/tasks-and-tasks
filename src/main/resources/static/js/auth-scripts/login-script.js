@@ -1,4 +1,4 @@
-import URL_API from "./api-consts.js";
+import URL_API from "../api-consts.js";
 
 document.getElementById("login-form").addEventListener("submit", async (event) => {
     event.preventDefault();
