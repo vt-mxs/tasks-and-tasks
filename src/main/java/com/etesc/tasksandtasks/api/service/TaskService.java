@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.etesc.tasksandtasks.api.dto.request.TaskRequestDTO;
-import com.etesc.tasksandtasks.api.dto.request.UserEmailRequestDTO;
 import com.etesc.tasksandtasks.api.dto.response.CategoryResponseDTO;
 import com.etesc.tasksandtasks.api.dto.response.PriorityResponseDTO;
 import com.etesc.tasksandtasks.api.dto.response.TaskResponseDTO;
@@ -18,6 +17,8 @@ import com.etesc.tasksandtasks.api.repository.UserRepository;
 import com.etesc.tasksandtasks.model.Category;
 import com.etesc.tasksandtasks.model.Task;
 import com.etesc.tasksandtasks.model.User;
+
+import jakarta.validation.constraints.Email;
 
 @Service
 public class TaskService {
@@ -67,8 +68,8 @@ public class TaskService {
     }
 
     @Transactional(readOnly = true)
-    public List<TaskResponseDTO> getAllUserTasks(UserEmailRequestDTO userEmailRequestDTO){
-        User user = userRepository.findByEmail(userEmailRequestDTO.email()).get();
+    public List<TaskResponseDTO> getAllUserTasks(@Email String email){
+        User user = userRepository.findByEmail(email).get();
         List<Task> tasks = taskRepository.findAllByUserId(user.getId());
         List<TaskResponseDTO> response = new ArrayList<>();
         tasks.forEach(task -> response.add(new TaskResponseDTO(
