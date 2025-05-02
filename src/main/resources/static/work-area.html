@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tasks and Tasks</title>
     <link rel="stylesheet" href="/css/work-area/work-area-form-style.css">
+    <link rel="stylesheet" href="/css/work-area/work-area-tasks.css">
 </head>
 <body>
     <header>
@@ -15,44 +16,53 @@
         </nav>
     </header>
     
-    <section id="form-area">
-        <h2>Criar tarefa</h2>
-        <form id="task-form">
-            <div class="textfield">
-                <label for="title">Titulo</label>
-                <input type="text" name="title" id="title" required>
-            </div>
-            
-            <div class="textfield">
-                <label for="description">Descrição</label>
-                <textarea name="description" name="description" id="description-area" required></textarea>
-            </div>
-
-            <div class="textfield">
-                <label for="category">Categoria</label>
-                <input type="text" name="category" id="category" required>
-            </div>
-
-            <div id="radio-area">
-                <label for="priority">Prioridade</label>
-                <div class="priority-div">
-                    <input type="radio" name="priority" class="priority" value="Baixa"> <label for="low-priority">Baixa</label>
+    <section id="main">
+        <section id="form-area">
+            <h2>Criar tarefa</h2>
+            <form id="task-form">
+                <div class="textfield">
+                    <label for="title">Titulo</label>
+                    <input type="text" name="title" id="title" required>
                 </div>
-
-                <div class="priority-div">
-                    <input type="radio" name="priority" class="priority" value="Média"> <label for="mid-priority">Média</label>
-                </div class="priority-div">
                 
-                <div class="priority-div">
-                    <input type="radio" name="priority" class="priority" value="Alta"> <label for="low-priority">Alta</label>
+                <div class="textfield">
+                    <label for="description">Descrição</label>
+                    <textarea name="description" name="description" id="description-area" required></textarea>
                 </div>
-            </div>
-
-            <div id="submit-area">
-                <input type="submit" value="Criar" id="submit-btn">
-            </div>
-        </form>
+    
+                <div class="textfield">
+                    <label for="category">Categoria</label>
+                    <input type="text" name="category" id="category" required>
+                </div>
+    
+                <div id="radio-area">
+                    <label for="priority">Prioridade</label>
+                    <div class="priority-div">
+                        <input type="radio" name="priority" class="priority" value="Baixa"> <label for="low-priority">Baixa</label>
+                    </div>
+    
+                    <div class="priority-div">
+                        <input type="radio" name="priority" class="priority" value="Média"> <label for="mid-priority">Média</label>
+                    </div class="priority-div">
+                    
+                    <div class="priority-div">
+                        <input type="radio" name="priority" class="priority" value="Alta"> <label for="low-priority">Alta</label>
+                    </div>
+                </div>
+    
+                <div id="submit-area">
+                    <input type="submit" value="Criar" id="submit-btn">
+                </div>
+            </form>
+        </section>
+    
+        <section id="tasks-area">
+            <ul class="task-list">
+                
+            </ul>
+        </section>
     </section>
+    
 
     <script>
         const userName = localStorage.getItem("userName");
