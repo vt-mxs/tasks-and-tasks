@@ -2,7 +2,6 @@ package com.etesc.tasksandtasks.api.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -40,19 +39,18 @@ public class TaskService {
         User user = userRepository.findByEmail(taskRequestDTO.userEmail()).get();
         String formatedCategoryName = Character.toUpperCase(taskRequestDTO.categoryName().charAt(0)) + taskRequestDTO.categoryName().substring(1);
 
-        Optional<Category> optionalCategory = categoryRepository.findByName(formatedCategoryName);
-        if(optionalCategory.isPresent()){
-            task.setCategory(optionalCategory.get());
-        }else {
-            Category newCategory = new Category(formatedCategoryName);
-            task.setCategory(newCategory);
-            categoryRepository.save(newCategory);
-        }
+        Category possibleCategory = categoryRepository.findByName(formatedCategoryName)
+            .orElseGet(() -> {
+                Category newCategory = new Category(formatedCategoryName);
+                categoryRepository.save(newCategory);
+                return newCategory;
+            });
 
         task.setTitle(taskRequestDTO.title());
         task.setDescription(taskRequestDTO.description());
         task.setUser(user);
         task.setCompleted(false);
+        task.setCategory(possibleCategory);
         task.setPriority(priorityRepository.findByLevel(taskRequestDTO.priorityLevel()).get());
 
         taskRepository.save(task);
@@ -68,7 +66,7 @@ public class TaskService {
         );
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public List<TaskResponseDTO> getAllUserTasks(UserEmailRequestDTO userEmailRequestDTO){
         User user = userRepository.findByEmail(userEmailRequestDTO.email()).get();
         List<Task> tasks = taskRepository.findAllByUserId(user.getId());
