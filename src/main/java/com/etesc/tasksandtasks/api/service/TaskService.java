@@ -1,10 +1,13 @@
 package com.etesc.tasksandtasks.api.service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.etesc.tasksandtasks.api.dto.request.TaskRequestDTO;
+import com.etesc.tasksandtasks.api.dto.request.UserEmailRequestDTO;
 import com.etesc.tasksandtasks.api.dto.response.CategoryResponseDTO;
 import com.etesc.tasksandtasks.api.dto.response.PriorityResponseDTO;
 import com.etesc.tasksandtasks.api.dto.response.TaskResponseDTO;
@@ -32,9 +35,8 @@ public class TaskService {
     private PriorityRepository priorityRepository;
 
     @Transactional
-    public TaskResponseDTO create(TaskRequestDTO taskRequestDTO){
+    public TaskResponseDTO createTask(TaskRequestDTO taskRequestDTO){
         Task task = new Task();
-        System.out.println(taskRequestDTO.userEmail());
         User user = userRepository.findByEmail(taskRequestDTO.userEmail()).get();
         String formatedCategoryName = Character.toUpperCase(taskRequestDTO.categoryName().charAt(0)) + taskRequestDTO.categoryName().substring(1);
 
@@ -64,5 +66,24 @@ public class TaskService {
             new CategoryResponseDTO(task.getCategory().getName()),
             new PriorityResponseDTO(task.getPriority().getLevel())
         );
+    }
+
+    @Transactional
+    public List<TaskResponseDTO> getAllUserTasks(UserEmailRequestDTO userEmailRequestDTO){
+        User user = userRepository.findByEmail(userEmailRequestDTO.email()).get();
+        List<Task> tasks = taskRepository.findAllByUserId(user.getId());
+        List<TaskResponseDTO> response = new ArrayList<>();
+        tasks.forEach(task -> response.add(new TaskResponseDTO(
+                task.getId(),
+                task.getTitle(),
+                task.getDescription(),
+                task.getCompleted(),
+                new UserResponseDTO(user.getId(), user.getName(), user.getEmail()),
+                new CategoryResponseDTO(task.getCategory().getName()),
+                new PriorityResponseDTO(task.getPriority().getLevel()))
+            )
+        );
+
+        return response;
     }
 }
