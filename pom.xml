@@ -8,11 +8,11 @@
 		<version>3.4.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.techshop</groupId>
-	<artifactId>techshop</artifactId>
+	<groupId>com.tasksandtasks</groupId>
+	<artifactId>tasksandtasks</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>techshop</name>
-	<description>Loja de hardware pro tcc da escola</description>
+	<description>Software de gerenciamento de tarefas para um tcc</description>
 	<url/>
 	<licenses>
 		<license/>
