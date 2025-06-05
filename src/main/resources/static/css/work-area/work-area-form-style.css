@@ -44,6 +44,10 @@ nav {
     box-sizing: border-box;
 }
 
+#logout-btn:hover{
+    background-color: #60567c;
+}
+
 #form-area {
     width: 40%;
     height: 100%;
@@ -68,6 +72,50 @@ nav {
     padding: 5%;
     background-color: #2f2841;
     border-radius: 20px;
+}
+
+.conteiner{
+    width: 90%;
+}
+
+.conteiner table{
+    color: white;
+    margin-top: 10px;
+    background-color: #514869;
+    border-radius: 10px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.conteiner table tr th{
+    height: 56px;
+    padding-left: 10px;
+    text-align: left;
+    font-family: 'Roboto', Courier, monospace;
+    border-style: 1 solid black;
+}
+
+.conteiner table tr.task th{
+    border-bottom: 1px solid black;
+    padding: 0px 10px;
+
+}
+
+.titulos{
+    font: bold;
+}
+
+.conteiner table tr th .button{
+    cursor: pointer;
+    color: #77ffc0;
+    border: 1px solid #77ffc0;
+    border-radius: 5px;
+    background-color: #2f2841;
+    padding: 4px 5px;
+}
+
+.conteiner table tr th .button:hover{
+    background-color: #554c6e;
 }
 
 .textfield {
@@ -126,6 +174,10 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#submit-btn:hover{
+    background-color: #60567c;
 }
 
 #submit-area > input {

@@ -14,4 +14,7 @@
     box-shadow: 0px 10px 40px #00000056;
     border-radius: 15px;
     scroll-behavior: smooth;
+    display: flex;
+    justify-content: center;
+    
 }
