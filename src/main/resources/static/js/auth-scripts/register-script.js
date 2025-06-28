@@ -28,7 +28,6 @@ document.getElementById("card-form").addEventListener("submit", async (event) =>
         localStorage.setItem("user", JSON.stringify(data));
         window.alert("Prazer em te conhecer " + data.name);
         window.location.href = "work-area.html";
-        window.alert("Erro ao cadastrar: " + error.user);
     }catch(error){
         window.alert(`Erro ao cadastrar: ${error.email || error.name || "error desconhecido, volte mais tarde."}`);
     }
