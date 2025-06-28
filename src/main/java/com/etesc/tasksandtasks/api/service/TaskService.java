@@ -2,14 +2,18 @@ package com.etesc.tasksandtasks.api.service;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.etesc.tasksandtasks.api.dto.request.CompleteTaskRequestDTO;
 import com.etesc.tasksandtasks.api.dto.request.TaskRequestDTO;
 import com.etesc.tasksandtasks.api.dto.response.CategoryResponseDTO;
 import com.etesc.tasksandtasks.api.dto.response.PriorityResponseDTO;
 import com.etesc.tasksandtasks.api.dto.response.TaskResponseDTO;
 import com.etesc.tasksandtasks.api.dto.response.UserResponseDTO;
+import com.etesc.tasksandtasks.api.exception.TaskNotFoundException;
 import com.etesc.tasksandtasks.api.repository.CategoryRepository;
 import com.etesc.tasksandtasks.api.repository.PriorityRepository;
 import com.etesc.tasksandtasks.api.repository.TaskRepository;
@@ -67,6 +71,25 @@ public class TaskService {
         );
     }
 
+    public TaskResponseDTO getTaskById(Long id){
+        Task task = taskRepository.findById(id)
+                    .orElseThrow(TaskNotFoundException::new);
+        
+        return new TaskResponseDTO(
+            task.getId(),
+            task.getTitle(),
+            task.getDescription(),
+            task.getCompleted(),
+            new UserResponseDTO(
+                task.getUser().getId(),
+                task.getUser().getEmail(),
+                task.getUser().getName()
+            ),
+            new CategoryResponseDTO(task.getCategory().getName()),
+            new PriorityResponseDTO(task.getPriority().getLevel())
+        );
+    }
+
     @Transactional(readOnly = true)
     public List<TaskResponseDTO> getAllUserTasks(@Email String email){
         User user = userRepository.findByEmail(email).get();
@@ -84,5 +107,9 @@ public class TaskService {
         );
 
         return response;
+    }
+
+    public void completeTask(CompleteTaskRequestDTO dto){
+        
     }
 }
