@@ -1,4 +1,6 @@
 package com.etesc.tasksandtasks.model;
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -32,7 +34,9 @@ public class Task {
 	@ManyToOne
 	@JoinColumn(name = "priority_id")
 	private Priority priority;
-	
+
+	private LocalDateTime dueDate;
+
 	public Task() {
 	}
 
@@ -101,5 +105,13 @@ public class Task {
 
 	public void setPriority(Priority priority) {
 		this.priority = priority;
+	}
+
+	public LocalDateTime getDueDate() {
+		return dueDate;
+	}
+
+	public void setDueDate(LocalDateTime dueDate) {
+		this.dueDate = dueDate;
 	}
 }
