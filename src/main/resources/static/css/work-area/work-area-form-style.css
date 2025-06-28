@@ -95,14 +95,15 @@ nav {
     border-style: 1 solid black;
 }
 
-.conteiner table tr.task th{
+.conteiner table tr/*.task*/ th{
     border-bottom: 1px solid black;
-    padding: 0px 10px;
+    padding: 0% 2%;
 
 }
 
 .titulos{
     font: bold;
+    color: #77ffc0;
 }
 
 .conteiner table tr th .button{
@@ -111,7 +112,8 @@ nav {
     border: 1px solid #77ffc0;
     border-radius: 5px;
     background-color: #2f2841;
-    padding: 4px 5px;
+    padding: 2% 2%;
+    margin: 4%;
 }
 
 .conteiner table tr th .button:hover{

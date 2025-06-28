@@ -54,6 +54,7 @@
                     <input type="submit" value="Criar" id="submit-btn">
                 </div>
             </form>
+            <script type="module" src="./js/work-area-script/create-task-script.js"></script>
         </section>
     
         <section id="tasks-area">
@@ -64,50 +65,23 @@
             </ul>   CÓDIGO QUE ESTAVA ANTES!  -->
 
             <div class="conteiner">
-                <table class="table-tasks" width="100%">
+                <table class="table-tasks" id="tasks-table" width="100%">
                     <tr>
                         <th class="titulos">Título</th>
                         <th class="titulos">Descrição</th>
+                        <th class="titulos">Completada</th>
                         <th class="titulos">Categoria</th>
                         <th class="titulos">Prioridade</th>
-                        <th class="titulos">Data</th>
                         <th class="titulos">Ações</th>
                     </tr>
-                    
-                    <tr class="task">
-                        <th>Estudar</th>
-                        <th>Prova de matemática</th>
-                        <th>Estudo</th>
-                        <th>Médio</th>
-                        <th>21/05</th>
-                        <th><button class="button">Editar</button>
-                            <button class="button">Concluida</button>
-                        </th>
-                    </tr>
-                
-                    <tr class="task">
-                        <th>Treinar</th>
-                        <th>Treino de Barra</th>
-                        <th>Esport</th>
-                        <th>Alta</th>
-                        <th>19/05</th>
-                        <th><button class="button">Editar</button>
-                            <button class="button">Concluida</button>
-                        </th>
-                    </tr>
-                    <tr class="task">
-                        <th>Arrumar a casa</th>
-                        <th>Sala, cozinha, quartos e banheiro</th>
-                        <th>Organização</th>
-                        <th>Baixa</th>
-                        <th>22/05</th>
-                        <th><button class="button">Editar</button>
-                            <button class="button">Concluida</button>
-                        </th>
-                    </tr>
+                    <script type="module" src="./js/work-area-script/show-tasks-script.js"></script>
                 </table>
             </div>
         </section>
     </section>
+
+    <script>
+        document.getElementById("user-name").innerText = JSON.parse(localStorage.getItem("user")).name;
+    </script>
 </body>
 </html>
