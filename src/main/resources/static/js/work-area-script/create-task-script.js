@@ -29,9 +29,9 @@ document.getElementById("task-form").addEventListener("submit", async (event) =>
 
         const responseData = await response.json();
         window.alert(`Tarefa "${responseData.title}" adcionada com sucesso`);
-
     } catch (error) {
         window.alert(`Erro ao criar tarefa: ${error.title || error.description}`);
     }
     form.reset();
+    location.reload();
 });
