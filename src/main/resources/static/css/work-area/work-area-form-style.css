@@ -197,3 +197,27 @@ nav {
     color: #f0ffffde;
     box-sizing: border-box;
 }
+
+select{
+    appearance: none;
+    font: inherit;
+    padding: 1rem;
+    border: none;
+    border-radius: 1rem;
+    background-color: #60567c;
+    line-height: 1.6;
+    color: white;
+    margin-top: 1px;
+
+    &:hover{
+        background-color: #514869;
+    }
+
+    &:open{
+        background-color: #2d263d;
+    }
+
+    option{
+        background-color: #2d263d;
+    }
+}
