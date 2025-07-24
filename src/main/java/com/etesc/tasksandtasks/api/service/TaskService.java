@@ -2,7 +2,6 @@ package com.etesc.tasksandtasks.api.service;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -71,6 +70,7 @@ public class TaskService {
         );
     }
 
+    @Transactional(readOnly = true)
     public TaskResponseDTO getTaskById(Long id){
         Task task = taskRepository.findById(id)
                     .orElseThrow(TaskNotFoundException::new);
@@ -107,6 +107,12 @@ public class TaskService {
         );
 
         return response;
+    }
+
+    public TaskResponseDTO deletTask(Long taskId){
+        TaskResponseDTO task = getTaskById(taskId);
+        taskRepository.deleteById(taskId);
+        return task;
     }
 
     public void completeTask(CompleteTaskRequestDTO dto){
