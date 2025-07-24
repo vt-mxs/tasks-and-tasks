@@ -6,8 +6,10 @@
     <title>Tasks and Tasks</title>
     <link rel="stylesheet" href="./css/work-area/work-area-form-style.css">
     <link rel="stylesheet" href="./css/work-area/work-area-tasks.css">
+    <link rel="shortcut icon" href="./imgs/icons/favicon-16x16.png" type="image/x-icon">
 </head>
 <body>
+
     <header>
         <h1>Olá <span id="user-name"></span></h1>
     
@@ -15,6 +17,15 @@
             <button id="logout-btn">Sair</button>
         </nav>
     </header>
+
+    <script>
+        function setNameOnWelcomeLbl() {
+            const userName = JSON.parse(localStorage.getItem("user")).name;
+            const spanName = document.getElementById("user-name");
+            spanName.innerText = userName;
+        }
+        setNameOnWelcomeLbl();
+    </script>
     
     <section id="main">
         <section id="form-area">
@@ -32,7 +43,14 @@
     
                 <div class="textfield">
                     <label for="category">Categoria</label>
-                    <input type="text" name="category" id="category" required>
+                    
+                    <select name="Categoria" id="categories">
+                        <option value="Trabalho">Trabalho</option>
+                        <option value="Estudo">Estudo</option>
+                        <option value="Lazer">Lazer</option>
+                        <option value="Compromisso">Compromisso</option>
+                    </select>
+                </div>
                 </div>
     
                 <div id="radio-area">
@@ -55,6 +73,7 @@
                 </div>
             </form>
             <script type="module" src="./js/work-area-script/create-task-script.js"></script>
+            <script type="module" src="./js/work-area-script/delete-task-script.js"></script>
         </section>
     
         <section id="tasks-area">
@@ -79,9 +98,5 @@
             </div>
         </section>
     </section>
-
-    <script>
-        document.getElementById("user-name").innerText = JSON.parse(localStorage.getItem("user")).name;
-    </script>
 </body>
 </html>
