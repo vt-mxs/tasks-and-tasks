@@ -1,0 +1,161 @@
+body {
+    
+    /* #201b2c */
+    
+    margin:0;
+    width: 100%;
+    height: 100%;
+    background-color: #2d263d;
+    font-family: "Roboto", 'Trebuchet MS';
+    align-items: center;
+    position: relative;
+}
+
+header {
+    width: 100%;
+    height: 9%;
+    display: flex;
+    align-items: center;
+}
+
+header > h1 {
+    margin-left: 3.2%;
+    color: #77ffc0;
+}
+
+#form-area {
+    width: 55%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 2%;
+}
+
+#form-area h2 {
+    font-size: 20pt;
+    font-weight: 800;
+    color: #f0ffffde;
+}
+
+#task-form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 5%;
+    background-color: #201b2c;
+    border-radius: 20px;
+}
+
+.textfield {
+    width: 100%;
+    display: flex;
+    margin: 3%;
+    font-size: 13pt;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.textfield > label {
+    color: #f0ffffde;
+    user-select: none;
+}
+
+.textfield > input {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #514869;
+    /* color: #f0ffffde; */
+    font-size: 12pt;
+    box-shadow: var(--main-box-shadow);
+    box-sizing: border-box;
+    outline: none;
+}
+
+.textfield > textarea {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #514869;
+    color: #f0ffffde;
+    font-size: 12pt;
+    box-shadow: var(--main-box-shadow);
+    box-sizing: border-box;
+    outline: none;
+}
+
+#radio-area {
+    width: 100%;
+    margin-top: 7%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    color: #f0ffffde;
+}
+
+#submit-area {
+    margin-top: 7%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#submit-area > input {
+    color: #77ffc0;
+    width: 1002px;
+
+}
+
+#submit-btn:hover{
+    background-color: #60567c;
+}
+
+#submit-area > input {
+    width: 100%;
+    padding: 17px;
+    background-color: #514869;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 8px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 800;
+    font-size: 11pt;
+    color: #f0ffffde;
+    box-sizing: border-box;
+}
+
+select{
+    appearance: none;
+    font: inherit;
+    padding: 1rem;
+    border: none;
+    border-radius: 1rem;
+    background-color: #60567c;
+    line-height: 1.6;
+    color: white;
+    margin-top: 1px;
+
+    &:hover{
+        background-color: #514869;
+    }
+
+    &:open{
+        background-color: #2d263d;
+    }
+
+    option{
+        background-color: #2d263d;
+    }
+}
