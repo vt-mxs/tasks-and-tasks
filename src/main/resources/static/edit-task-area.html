@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task and Task</title>
+    <link rel="stylesheet" href="./css/edit-task-area/edit-task-area.css">
+</head>
+<body>
+    <header>
+
+    </header>
+
+    <section id="form-area">
+        <h2>Editar tarefa</h2>
+        <form id="task-form">
+            <div class="textfield">
+                <label for="title">Titulo</label>
+                <input type="text" name="title" id="title" required>
+            </div>
+            
+            <div class="textfield">
+                <label for="description">Descrição</label>
+                <textarea name="description" name="description" id="description-area" required></textarea>
+            </div>
+
+            <div class="textfield">
+                <label for="category">Categoria</label>
+                <select name="Categoria">
+                    <option value="0">Trabalho</option>
+                    <option value="1">Estudo</option>
+                    <option value="2">Lazer</option>
+                    <option value="3">Compromisso</option>
+                </select>
+            </div>
+
+            <div id="radio-area">
+                <label for="priority">Prioridade</label>
+                <div class="priority-div">
+                    <input type="radio" name="priority" class="priority" value="Baixa"> <label for="low-priority">Baixa</label>
+                </div>
+
+                <div class="priority-div">
+                    <input type="radio" name="priority" class="priority" value="Média"> <label for="mid-priority">Média</label>
+                </div class="priority-div">
+                
+                <div class="priority-div">
+                    <input type="radio" name="priority" class="priority" value="Alta"> <label for="low-priority">Alta</label>
+                </div>
+            </div>
+
+            <div id="submit-area">
+                <input type="submit" value="Editar" id="submit-btn">
+            </div>
+        </form>
+        <script type="module" src=" ??? "></script>
+    </section>
+    
+    <footer>
+
+    </footer>
+</body>
+</html>
