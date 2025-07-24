@@ -6,7 +6,7 @@ document.getElementById("task-form").addEventListener("submit", async (event) =>
     const form = document.getElementById("task-form");
     const submitter = document.getElementById("submit-btn");
     const formData = new FormData(form, submitter);
-    
+    const selectedCategoryOpt = document.getElementById("categories");
     try {
         const response = await fetch(URL_API + "/tasks/create", {
             method: "POST",
@@ -17,7 +17,7 @@ document.getElementById("task-form").addEventListener("submit", async (event) =>
                 title: formData.get("title"),
                 description: formData.get("description"),
                 userEmail: JSON.parse(localStorage.getItem("user")).email,
-                categoryName: formData.get("category"),
+                categoryName: selectedCategoryOpt.value,
                 priorityLevel: formData.get("priority")
             })
         });
