@@ -6,10 +6,9 @@
     <title>Tasks and Tasks</title>
     <link rel="stylesheet" href="./css/work-area/work-area-form-style.css">
     <link rel="stylesheet" href="./css/work-area/work-area-tasks.css">
-    <link rel="shortcut icon" href="./imgs/icons/favicon-16x16.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./imgs/icons/favicon-32x32.png" type="image/x-icon">
 </head>
 <body>
-
     <header>
         <h1>Olá <span id="user-name"></span></h1>
     
@@ -50,7 +49,18 @@
                         <option value="Lazer">Lazer</option>
                         <option value="Compromisso">Compromisso</option>
                     </select>
+
+                    <button class="button" onclick="criarCategoria()">Criar nova categoria</button>
+
+                    <script>
+                        function criarCategoria() {
+                            let nomeCategoria = prompt("Nome da Categoria:");
+                            alert("Categoria " + nome + " adicionada!");
+                        }
+                    </script>
+
                 </div>
+                
                 </div>
     
                 <div id="radio-area">
@@ -73,15 +83,9 @@
                 </div>
             </form>
             <script type="module" src="./js/work-area-script/create-task-script.js"></script>
-            <script type="module" src="./js/work-area-script/delete-task-script.js"></script>
         </section>
     
         <section id="tasks-area">
-            <!-- <ul id="task-list">
-                <li>Título: Estudar</li>
-                <Li>Descrição: Prova de matemática</Li>
-                <li>Categoria: médio</li>
-            </ul>   CÓDIGO QUE ESTAVA ANTES!  -->
 
             <div class="conteiner">
                 <table class="table-tasks" id="tasks-table" width="100%">
@@ -94,6 +98,9 @@
                         <th class="titulos">Ações</th>
                     </tr>
                     <script type="module" src="./js/work-area-script/show-tasks-script.js"></script>
+                    <script type="module" src="./js/work-area-script/delete-task-script.js"></script>
+                    <script type="module" src="./js/work-area-script/redirect-update-window-script.js"></script>
+                    <script type="module" src="./js/update-form-scripts/update-task-script.js"></script>
                 </table>
             </div>
         </section>
