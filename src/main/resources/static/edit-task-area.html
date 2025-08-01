@@ -17,21 +17,21 @@
         <form id="task-form">
             <div class="textfield">
                 <label for="title">Titulo</label>
-                <input type="text" name="title" id="title" required>
+                <input type="text" name="title" id="title" style="color:white;" required>
             </div>
             
             <div class="textfield">
                 <label for="description">Descrição</label>
-                <textarea name="description" name="description" id="description-area" required></textarea>
+                <textarea name="description" name="description" id="description-area" style="font-family: 'Roboto', sans-serif;" required></textarea>
             </div>
 
             <div class="textfield">
                 <label for="category">Categoria</label>
-                <select name="Categoria">
-                    <option value="0">Trabalho</option>
-                    <option value="1">Estudo</option>
-                    <option value="2">Lazer</option>
-                    <option value="3">Compromisso</option>
+                <select name="Categoria" class="select">
+                    <option value="Trabalho">Trabalho</option>
+                    <option value="Estudo">Estudo</option>
+                    <option value="Lazer">Lazer</option>
+                    <option value="Compromisso">Compromisso</option>
                 </select>
             </div>
 
@@ -54,11 +54,7 @@
                 <input type="submit" value="Editar" id="submit-btn">
             </div>
         </form>
-        <script type="module" src=" ??? "></script>
     </section>
-    
-    <footer>
-
-    </footer>
 </body>
+<script type="module" src="./js/update-form-scripts/display-info-at-form-script.js" defer></script>
 </html>
