@@ -45,7 +45,7 @@ function formatTasks(tasks) {
                 <th class="task-${task.id}">${task.priority.level}</th>
                 <th class="task-btns-${task.id}">
                     <button class="button">Concluir</button>
-                    <button class="button">Editar</button>
+                    <button class="button edit-task-btn" data-id="${task.id}" data-info='${JSON.stringify(task).replace(/'/g, "&apos;")}'>Editar</button>
                     <button class="button delete-task-btn" data-id="${task.id}">Excluir</button>
                 </th>
             </tr>
@@ -59,15 +59,6 @@ async function showTasks() {
     try {
         const data = await loadTasks();
         formatTasks(data);
-        // const taskList = document.getElementById("task-list");
-        
-        
-        // data.forEach(task => {
-        //     const taskElement = document.createElement("li");
-        //     taskElement.innerText = `Titulo: ${task.title} | Descrição: ${task.description} | Completada: ${(task.completed)? "Sim" : "Não"} | Categoria: ${task.category.name} | Prioridade: ${task.priority.level}`;
-        //     tasksLis.push(taskList.appendChild(taskElement));
-        // });
-        // return tasksLis;
     } catch (error) {
         console.log(JSON.stringify(error));
         
