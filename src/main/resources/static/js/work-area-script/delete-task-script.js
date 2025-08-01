@@ -24,19 +24,17 @@ async function deleteTask(taskId) {
    }
 }
 
-document.addEventListener("click", (e) => {
-   if(!e.target && !e.target.matches(".delete-task-btn")){
-      console.log("delete task btn não definido");
-      return;
-   }
+document.getElementById("tasks-table").addEventListener("click", (e) => {
+   const target = e.target;
 
-   let wantToDelete = window.confirm("Tem certeza que quer deletar essa tarefa?");
+   if (!target.matches(".delete-task-btn")) return;
 
-   if(wantToDelete){
-      const taskId = e.target.dataset.id;
-      deleteTask(taskId)
-   }
-   else {
+   const wantToDelete = window.confirm("Tem certeza que quer deletar essa tarefa?");
+
+   if (wantToDelete) {
+      const taskId = target.dataset.id;
+      deleteTask(taskId);
+   } else {
       window.alert("Operação cancelada");
    }
 });
