@@ -113,7 +113,7 @@ nav {
     border-radius: 5px;
     background-color: #2f2841;
     padding: 2% 2%;
-    margin: 4%;
+    margin-top: 4%;
 }
 
 .conteiner table tr th .button:hover{
@@ -198,7 +198,7 @@ nav {
     box-sizing: border-box;
 }
 
-select{
+#select{
     appearance: none;
     font: inherit;
     padding: 1rem;
