@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.etesc.tasksandtasks.api.dto.request.CompleteTaskRequestDTO;
 import com.etesc.tasksandtasks.api.dto.request.TaskRequestDTO;
+import com.etesc.tasksandtasks.api.dto.request.UpdateTaskRequestDTO;
 import com.etesc.tasksandtasks.api.dto.response.CategoryResponseDTO;
 import com.etesc.tasksandtasks.api.dto.response.PriorityResponseDTO;
 import com.etesc.tasksandtasks.api.dto.response.TaskResponseDTO;
@@ -113,6 +114,38 @@ public class TaskService {
         TaskResponseDTO task = getTaskById(taskId);
         taskRepository.deleteById(taskId);
         return task;
+    }
+
+    public TaskResponseDTO updateTask(UpdateTaskRequestDTO request){
+        Task task = taskRepository.findById(request.id())
+            .orElseThrow(TaskNotFoundException::new)
+        ;
+        Category possibleCategory = categoryRepository.findByName(request.categoryName())
+            .orElseGet(() -> {
+                Category newCategory = new Category(request.categoryName());
+                categoryRepository.save(newCategory);
+                return newCategory;
+            })
+        ;
+        task.setId(request.id());
+        task.setTitle(request.title());
+        task.setDescription(request.description());
+        task.setCategory(possibleCategory);
+        task.setPriority(priorityRepository.findByLevel(request.priorityLevel()).get());
+        taskRepository.save(task);
+        return new TaskResponseDTO(
+            request.id(),
+            request.title(),
+            request.description(),
+            task.getCompleted(),
+            new UserResponseDTO(
+                task.getUser().getId(),
+                task.getUser().getName(),
+                task.getUser().getEmail()
+            ),
+            new CategoryResponseDTO(task.getCategory().getName()),
+            new PriorityResponseDTO(task.getPriority().getLevel())
+        );
     }
 
     public void completeTask(CompleteTaskRequestDTO dto){
