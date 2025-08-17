@@ -13,7 +13,7 @@
         <h1>Olá <span id="user-name"></span></h1>
     
         <nav>
-            <button id="logout-btn">Sair</button>
+            <button id="logout-btn" onclick="exit()">Sair</button>
         </nav>
     </header>
 
@@ -23,6 +23,7 @@
             const spanName = document.getElementById("user-name");
             spanName.innerText = userName;
         }
+
         setNameOnWelcomeLbl();
     </script>
     
@@ -49,8 +50,10 @@
                         <option value="Lazer">Lazer</option>
                         <option value="Compromisso">Compromisso</option>
                     </select>
+                </div>
 
-                    <button class="button" onclick="criarCategoria()">Criar nova categoria</button>
+                <div class="textfield">
+                    <input type="button" id="create-categorie-btn" value="Criar nova categoria" onclick="criarCategoria()"></input>
 
                     <script>
                         function criarCategoria() {
@@ -58,9 +61,6 @@
                             alert("Categoria " + nome + " adicionada!");
                         }
                     </script>
-
-                </div>
-                
                 </div>
     
                 <div id="radio-area">
@@ -100,7 +100,6 @@
                     <script type="module" src="./js/work-area-script/show-tasks-script.js"></script>
                     <script type="module" src="./js/work-area-script/delete-task-script.js"></script>
                     <script type="module" src="./js/work-area-script/redirect-update-window-script.js"></script>
-                    <script type="module" src="./js/update-form-scripts/update-task-script.js"></script>
                 </table>
             </div>
         </section>

@@ -97,7 +97,7 @@ nav {
 
 .conteiner table tr/*.task*/ th{
     border-bottom: 1px solid black;
-    padding: 0% 2%;
+    padding: 1%;
 
 }
 
@@ -171,6 +171,18 @@ nav {
     color: #f0ffffde;
 }
 
+#create-categorie-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: 800;
+}
+
+#create-categorie-btn:hover{
+    background-color: #60567c;
+}
+
 #submit-area {
     margin-top: 7%;
     display: flex;
@@ -198,7 +210,7 @@ nav {
     box-sizing: border-box;
 }
 
-#select{
+#categories{
     appearance: none;
     font: inherit;
     padding: 1rem;
