@@ -1,9 +1,11 @@
 let taskInfo = JSON.parse(localStorage.getItem("task_info"));
+console.log("Task info carregada:", taskInfo);
+
 console.log(taskInfo);
-document.getElementById("title").value = taskInfo.title || "asadasd";
+document.getElementById("title").value = taskInfo.title || "";
 document.getElementById("description-area").value = taskInfo.description || "";
 
-const selectEl = document.querySelector('select[name="Categoria"]');
+const selectEl = document.getElementById("categories");
 
 if(selectEl){
    selectEl.value = taskInfo.category.name;
